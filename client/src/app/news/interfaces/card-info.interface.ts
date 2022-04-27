@@ -5,5 +5,5 @@ export interface ICardInfo {
   date: Date,
   content: string,
   author: string,
-  archivedDate?: Date
+  archiveDate?: Date
 }

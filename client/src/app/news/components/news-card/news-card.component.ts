@@ -9,10 +9,15 @@ import { ICardInfo } from '../../interfaces/card-info.interface';
 export class NewsCardComponent {
 
   @Input() card_info?: ICardInfo
-  @Output() archiveButtonEmitter = new EventEmitter<string>()
+  @Output() archiveButtonEmitter = new EventEmitter<ICardInfo>()
+  @Output() removeButtonEmitter = new EventEmitter<ICardInfo>()
 
-  onArchiveClick(new_id?: string): void {
-    this.archiveButtonEmitter.emit(new_id)
+  onArchiveClick(data?: ICardInfo): void {
+    this.archiveButtonEmitter.emit(data)
+  }
+
+  onRemoveClick(data?: ICardInfo): void {
+    this.removeButtonEmitter.emit(data)
   }
 
 }

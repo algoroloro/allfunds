@@ -19,13 +19,14 @@ export class NewsComponent implements OnInit {
 
   getNews() {
     this.newsService.getNews().subscribe((res) => {
-      console.log(res);
       this.cards_info = res
     })
   }
 
-  archiveNew(new_id: string) {
-    console.log('emito', new_id);
+  archiveNew(item: ICardInfo) {
+    this.newsService.updateNew(item.id, item).subscribe((res) => {
+      this.cards_info = res
+    })
   }
 
 }

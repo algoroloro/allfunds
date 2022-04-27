@@ -1,5 +1,5 @@
 <section class="archived">
   <div class="archived__card" *ngFor="let card_info of cards_info">
-    <app-news-card [card_info]="card_info" (archiveButtonEmitter)="archiveNew($event)"></app-news-card>
+    <app-news-card [card_info]="card_info" (removeButtonEmitter)="removeNew($event)"></app-news-card>
   </div>
 </section>

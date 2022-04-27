@@ -1,11 +1,12 @@
 <mat-card class="example-card">
   <mat-card-title-group>
     <mat-card-title>{{card_info?.title}}</mat-card-title>
-    <mat-card-subtitle *ngIf="!card_info?.archivedDate">{{card_info?.author}} - {{card_info?.date | date: 'dd MMMM yyyy'}}</mat-card-subtitle>
-    <mat-card-subtitle *ngIf="card_info?.archivedDate">{{card_info?.author}} - {{card_info?.date | date: 'dd MMMM yyyy'}} archived</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!card_info?.archiveDate">{{card_info?.author}} - {{card_info?.date | date: 'dd MMMM yyyy'}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="card_info?.archiveDate">{{card_info?.author}} - {{card_info?.date | date: 'dd MMMM yyyy'}} archived</mat-card-subtitle>
   </mat-card-title-group>
   <mat-card-content>{{card_info?.content}}</mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="onArchiveClick(card_info?.id)">Archivar</button>
+    <button mat-button *ngIf="!card_info?.archiveDate" (click)="onArchiveClick(card_info)">Archivar</button>
+    <button mat-button *ngIf="card_info?.archiveDate" (click)="onRemoveClick(card_info)">Eliminar</button>
   </mat-card-actions>
 </mat-card>

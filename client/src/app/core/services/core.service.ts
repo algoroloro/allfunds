@@ -12,4 +12,12 @@ export class CoreService<T> {
   read(url: string): Observable<T[]> {
     return this.http.get<T[]>(url)
   }
+
+  update(url: string, item: T): Observable<T[]> {
+    return this.http.put<T[]>(url, item)
+  }
+
+  delete(url: string): Observable<T[]> {
+    return this.http.delete<T[]>(url)
+  }
 }

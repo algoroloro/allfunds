@@ -27,6 +27,12 @@ const NewSchema = new Schema({
     },
 })
 
-const NewModel = mongoose.model('New', NewSchema)
+NewSchema.set('toJSON', {
+    transform: (doc, obj) => {
+        obj.id = obj._id
+        delete obj._id
+        delete obj.__v
+    }
+})
 
-module.exports = NewModel
+module.exports = mongoose.model('New', NewSchema)

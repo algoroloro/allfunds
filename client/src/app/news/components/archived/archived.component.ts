@@ -23,8 +23,10 @@ export class ArchivedComponent implements OnInit {
     })
   }
 
-  archiveNew(new_id: string) {
-    console.log('emito', new_id);
+  removeNew(item: ICardInfo) {
+    this.newsService.deleteNew(item.id).subscribe((res) => {
+      this.cards_info = res
+    })
   }
 
 }
