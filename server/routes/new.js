@@ -4,6 +4,7 @@ const NewRouter = express => {
     const api = express.Router()
     api.post('', NewController.create)
     api.get('', NewController.read)
+    api.get('/archived', NewController.readArchived)
     return api
 }
 

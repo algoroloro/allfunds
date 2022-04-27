@@ -11,7 +11,18 @@ const NewController = {
     },
     read: async (req, res) => {
         try {
+            const items = await New.find({}).sort({date: 'desc'})
+            res.status(200).send(items)
+        } catch (error) {
+            return res.status(400).send(error)
+        }
+    },
+    readArchived: async (req, res) => {
+        try {
             const items = await New.find({})
+                .where('archiveDate')
+                .exists(true)
+                .sort({date: 'desc'})
             res.status(200).send(items)
         } catch (error) {
             return res.status(400).send(error)

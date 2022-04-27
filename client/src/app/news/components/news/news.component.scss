@@ -1,0 +1,11 @@
+.news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    width: 50rem;
+    margin-bottom: 24px;
+  }
+}
